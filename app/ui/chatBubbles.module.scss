@@ -1,0 +1,108 @@
+@import '@cloudscape-design/design-tokens/index';
+
+.chatContainer {
+    height: 100%;
+    min-height: 100vh;
+}
+
+.chatBubble {
+    border: 1px solid $color-border-divider-default;
+    border-radius: $border-radius-item;
+    padding: $space-container-horizontal;
+    background-color: $color-background-dropdown-item-hover;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.aiBubble {
+    background-color: #f5f5f5;
+}
+
+.humanBubble {
+    background-color: transparent;
+}
+
+.activeAvatarContainer {
+    position: relative;
+}
+
+.activeAvatarImg {
+    z-index: 4;
+    position: relative;
+}
+
+.activeAvatar {
+    --offset: 1px;
+    z-index: 3;
+    width: 32px;
+    height: 32px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 100%;
+    background-color: $color-background-dropdown-item-hover
+}
+
+.activeAvatar::before {
+    content: '';
+    // background: conic-gradient(transparent 270deg, black, transparent);
+    background: radial-gradient(90% 50% at 50% 0%, #7638FA 0%, rgba(255, 255, 255, 0.00) 100%), radial-gradient(93.46% 50% at 50% 100%, #3E8DFF 0%, rgba(35, 47, 62, 0.00) 100%);;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    aspect-ratio: 1;
+    width: 100%;
+    animation: rotate 1s linear infinite;
+}
+
+.activeAvatar::after {
+    content: '';
+    background: inherit;
+    border-radius: inherit;
+    position: absolute;
+    z-index: 1;
+    inset: var(--offset);
+    height: calc(100% - 2 * var(--offset));
+    width: calc(100% - 2 * var(--offset));
+}
+
+@keyframes rotate {
+    from {
+        transform: translate(-50%, -50%) scale(1) rotate(0turn);
+    }
+
+    to {
+        transform: translate(-50%, -50%) scale(1) rotate(1turn);
+    }
+}
+
+
+.chatContentContainer {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    align-items: flex-start;
+}
+
+.chatFooterIcons {
+    display: flex;
+    flex-direction: row;
+    gap: .25rem;
+}
+
+.divider {
+    background-color: $color-border-divider-default;
+    height: 100%;
+    width: 1px;
+}
+
+.shimmerEffect {
+    width: 32px;
+    height: 32px;
+    border-radius: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: linear-gradient(90deg, rgba(223, 211, 248, 0.50) 0%, rgba(221, 205, 254, 0.50) 25%, rgba(204, 250, 255, 0.50) 64.78%, rgba(204, 225, 255, 0.50) 100%);
+} 
