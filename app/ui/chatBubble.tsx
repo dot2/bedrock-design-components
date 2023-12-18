@@ -97,4 +97,6 @@ const ChatBubbles: React.FC<ChatBubblesProps> = ({ variant = 'ai', isLoading = f
   );
 };
 
+ChatBubbles.displayName = "ChatBubbles";
+
 export default ChatBubbles;
