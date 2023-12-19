@@ -30,6 +30,7 @@ interface ChatBubblesProps {
   isLoading?: boolean;
 }
 
+// eslint-disable-next-line react/display-name
 const ChatBubbles: React.FC<ChatBubblesProps> = ({ variant = 'ai', isLoading = false }) => {
   const isAI = variant === 'ai';
   const isHuman = variant === 'human';
