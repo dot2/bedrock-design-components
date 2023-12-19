@@ -37,7 +37,7 @@ const ChatBubbles: React.FC<ChatBubblesProps> = ({ variant = 'ai', isLoading = f
 
 
   const bubbleClass = isAI ? styles.aiBubble : styles.humanBubble;
-  const avatarSrc = isAI ? "/bedrock-avatar.svg" : "/human-avatar.svg"; // Different avatars for AI and human
+  const avatarSrc = isAI ? "/bedrock-avatar.png" : "/human-avatar.png"; // Different avatars for AI and human
 
   // Conditional rendering of the content based on loading state
   const renderContent = () => {
@@ -59,7 +59,7 @@ const ChatBubbles: React.FC<ChatBubblesProps> = ({ variant = 'ai', isLoading = f
     } else {
       return (
         <>
-          <img src={avatarSrc} alt={isAI ? "AI avatar" : "Human avatar"} />
+          <img src={avatarSrc} width={32} alt={isAI ? "AI avatar" : "Human avatar"} />
           <SpaceBetween direction='vertical' size="l">
             <TextContent>
               <p>This is the text content area for the chat bubbles. Render the response from the AI here and any additional components.</p>
