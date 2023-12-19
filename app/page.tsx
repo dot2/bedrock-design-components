@@ -42,7 +42,7 @@ import messages from '@cloudscape-design/components/i18n/messages/all.en';
 
 const LOCALE = 'en';
 
-export default function () {
+const Page = () => {
   const [value, setValue] = React.useState("");
   return (
     <I18nProvider locale={LOCALE} messages={[messages]}>
@@ -105,3 +105,7 @@ export default function () {
     </I18nProvider>
   );
 }
+
+export default Page;
+
+
