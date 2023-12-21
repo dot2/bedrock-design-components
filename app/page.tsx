@@ -6,23 +6,7 @@ import ChatBubbles from './ui/chatBubble'
 import Container from "@cloudscape-design/components/container";
 import SpaceBetween from "@cloudscape-design/components/space-between";
 import React from 'react';
-
-
-
-// export default function Home() {
-//   return (
-//     <main className={styles.main}>
-//       <h1>Bedrock design components</h1>
-//       <Container>
-//         <SpaceBetween direction='vertical' size='l'>
-//           <ChatBubbles variant="ai" />
-//           <ChatBubbles variant="human" />
-//           <ChatBubbles variant="ai" isLoading />
-//         </SpaceBetween>
-//       </Container>
-//     </main>
-//   )
-// }
+import { applyMode, Mode } from '@cloudscape-design/global-styles'
 
 import {
   AppLayout,
@@ -105,6 +89,8 @@ const Page = () => {
     </I18nProvider>
   );
 }
+
+applyMode(Mode.Light);
 
 export default Page;
 
