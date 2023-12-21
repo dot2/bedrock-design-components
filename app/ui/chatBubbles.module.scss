@@ -6,18 +6,23 @@
     border: 1px solid $color-border-divider-default;
     border-radius: $border-radius-item;
     padding: $space-container-horizontal;
-    background-color: $color-background-dropdown-item-hover;
+    background-color: $color-background-cell-shaded;
     width: 100%;
     position: relative;
     overflow: hidden;
 }
 
 .aiBubble {
-    background-color: $color-background-dropdown-item-hover;
+    background-color: $color-background-cell-shaded;
 }
 
 .humanBubble {
     background-color: transparent;
+}
+
+.avatarImg {
+    border: 1px solid $color-border-divider-default;
+    border-radius: 100%;
 }
 
 .activeAvatarContainer {
@@ -37,12 +42,11 @@
     position: relative;
     overflow: hidden;
     border-radius: 100%;
-    background-color: $color-background-dropdown-item-hover
+    background-color: $color-background-cell-shaded;
 }
 
 .activeAvatar::before {
     content: '';
-    // background: conic-gradient(transparent 270deg, black, transparent);
     background: radial-gradient(90% 50% at 50% 0%, #7638FA 0%, rgba(255, 255, 255, 0.00) 100%), radial-gradient(93.46% 50% at 50% 100%, #3E8DFF 0%, rgba(35, 47, 62, 0.00) 100%);;
     position: absolute;
     top: 50%;
@@ -50,7 +54,7 @@
     transform: translate(-50%, -50%);
     aspect-ratio: 1;
     width: 100%;
-    animation: rotate 1s linear infinite;
+    animation: rotate 1.5s linear infinite;
 }
 
 .activeAvatar::after {
@@ -102,4 +106,14 @@
     top: 0;
     left: 0;
     background: linear-gradient(90deg, rgba(223, 211, 248, 0.50) 0%, rgba(221, 205, 254, 0.50) 25%, rgba(204, 250, 255, 0.50) 64.78%, rgba(204, 225, 255, 0.50) 100%);
+} 
+
+.shimmerEffectDark {
+    width: 32px;
+    height: 32px;
+    border-radius: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: linear-gradient(90deg, rgba(191, 168, 240, 0.50) 0%, rgba(187, 155, 253, 0.50) 25%, rgba(153, 245, 255, 0.50) 64.78%, rgba(153, 195, 255, 0.50) 100%);    
 } 

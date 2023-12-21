@@ -4,6 +4,7 @@ import styles from './chatBubbles.module.scss';
 import Button from "@cloudscape-design/components/button";
 import SpaceBetween from "@cloudscape-design/components/space-between";
 import TextContent from "@cloudscape-design/components/text-content";
+import '@cloudscape-design/global-styles/dark-mode-utils.css';
 import { motion } from 'framer-motion';
 
 const shimmerAnimation = {
@@ -18,9 +19,9 @@ const shimmerAnimation = {
 };
 
 const shimmerTransition = {
-  duration: .5,
+  duration: 1,
   repeat: Infinity,
-  repeatDelay: 1,
+  repeatDelay: .5,
   ease: "easeIn"
 };
 
@@ -30,14 +31,13 @@ interface ChatBubblesProps {
   isLoading?: boolean;
 }
 
-// eslint-disable-next-line react/display-name
 const ChatBubbles: React.FC<ChatBubblesProps> = ({ variant = 'ai', isLoading = false }) => {
   const isAI = variant === 'ai';
   const isHuman = variant === 'human';
 
 
   const bubbleClass = isAI ? styles.aiBubble : styles.humanBubble;
-  const avatarSrc = isAI ? "/bedrock-avatar.png" : "/human-avatar.png"; // Different avatars for AI and human
+  const avatarSrc = isAI ? "/bedrock-avatar.svg" : "/human-avatar.svg"; // Different avatars for AI and human
 
   // Conditional rendering of the content based on loading state
   const renderContent = () => {
@@ -45,10 +45,18 @@ const ChatBubbles: React.FC<ChatBubblesProps> = ({ variant = 'ai', isLoading = f
       return (
         <div className={styles.activeAvatarContainer}>
           <div className={styles.activeAvatar}>
-            <img className={styles.activeAvatarImg} src='/bedrock-avatar_active.svg' alt={isAI ? "AI avatar" : "Human avatar"} />
+            <img className={[styles.activeAvatarImg, "awsui-util-show-in-dark-mode"].join(" ")} src='/bedrock-avatar_active_dark.svg' alt={isAI ? "AI avatar" : "Human avatar"} />
+            <img className={[styles.activeAvatarImg, "awsui-util-hide-in-dark-mode"].join(" ")} src='/bedrock-avatar_active_light.svg' alt={isAI ? "AI avatar" : "Human avatar"} />
           </div>
           <motion.div
-            className={styles.shimmerEffect}
+            className={[styles.shimmerEffectDark, "awsui-util-show-in-dark-mode"].join(" ")}
+            initial="initial"
+            animate="animate"
+            variants={shimmerAnimation}
+            transition={shimmerTransition}
+          />
+          <motion.div
+            className={[styles.shimmerEffect, "awsui-util-hide-in-dark-mode"].join(" ")}
             initial="initial"
             animate="animate"
             variants={shimmerAnimation}
@@ -59,7 +67,7 @@ const ChatBubbles: React.FC<ChatBubblesProps> = ({ variant = 'ai', isLoading = f
     } else {
       return (
         <>
-          <img src={avatarSrc} width={32} alt={isAI ? "AI avatar" : "Human avatar"} />
+          <img className={styles.avatarImg} src={avatarSrc} width={32} alt={isAI ? "AI avatar" : "Human avatar"} />
           <SpaceBetween direction='vertical' size="l">
             <TextContent>
               <p>This is the text content area for the chat bubbles. Render the response from the AI here and any additional components.</p>

@@ -90,7 +90,7 @@ const Page = () => {
   );
 }
 
-applyMode(Mode.Light);
+applyMode(Mode.Dark);
 
 export default Page;
 
