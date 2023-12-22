@@ -74,6 +74,7 @@ const Page = () => {
                   <ChatBubbles variant="ai" />
                   <ChatBubbles variant="human" />
                   <ChatBubbles variant="ai" isLoading />
+                  <ChatBubbles variant="ai" isStreaming />
                 </SpaceBetween>
                 <Textarea
                   onChange={({ detail }) => setValue(detail.value)}
@@ -90,7 +91,7 @@ const Page = () => {
   );
 }
 
-applyMode(Mode.Dark);
+applyMode(Mode.Light);
 
 export default Page;
 

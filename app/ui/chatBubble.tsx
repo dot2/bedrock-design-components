@@ -19,9 +19,9 @@ const shimmerAnimation = {
 };
 
 const shimmerTransition = {
-  duration: 1,
+  duration: .5,
   repeat: Infinity,
-  repeatDelay: .5,
+  repeatDelay: 1,
   ease: "easeIn"
 };
 
@@ -29,9 +29,10 @@ const shimmerTransition = {
 interface ChatBubblesProps {
   variant?: 'ai' | 'human'; // Add more variants if needed
   isLoading?: boolean;
+  isStreaming?: boolean;
 }
 
-const ChatBubbles: React.FC<ChatBubblesProps> = ({ variant = 'ai', isLoading = false }) => {
+const ChatBubbles: React.FC<ChatBubblesProps> = ({ variant = 'ai', isLoading = false, isStreaming = false }) => {
   const isAI = variant === 'ai';
   const isHuman = variant === 'human';
 
@@ -45,8 +46,8 @@ const ChatBubbles: React.FC<ChatBubblesProps> = ({ variant = 'ai', isLoading = f
       return (
         <div className={styles.activeAvatarContainer}>
           <div className={styles.activeAvatar}>
-            <img className={[styles.activeAvatarImg, "awsui-util-show-in-dark-mode"].join(" ")} src='/bedrock-avatar_active_dark.svg' alt={isAI ? "AI avatar" : "Human avatar"} />
-            <img className={[styles.activeAvatarImg, "awsui-util-hide-in-dark-mode"].join(" ")} src='/bedrock-avatar_active_light.svg' alt={isAI ? "AI avatar" : "Human avatar"} />
+            <img className={[styles.activeAvatarImg, "awsui-util-show-in-dark-mode"].join(" ")} width={32} src='/bedrock-avatar_active_dark.svg' alt={isAI ? "AI avatar" : "Human avatar"} />
+            <img className={[styles.activeAvatarImg, "awsui-util-hide-in-dark-mode"].join(" ")} width={32} src='/bedrock-avatar_active_light.svg' alt={isAI ? "AI avatar" : "Human avatar"} />
           </div>
           <motion.div
             className={[styles.shimmerEffectDark, "awsui-util-show-in-dark-mode"].join(" ")}
@@ -62,6 +63,16 @@ const ChatBubbles: React.FC<ChatBubblesProps> = ({ variant = 'ai', isLoading = f
             variants={shimmerAnimation}
             transition={shimmerTransition}
           />
+        </div>
+      )
+    } 
+    else if (isAI && isStreaming) {
+      return (
+        <div className={styles.activeAvatarContainer}>
+          <div className={styles.activeAvatar}>
+            <img className={[styles.activeAvatarImg, "awsui-util-show-in-dark-mode"].join(" ")} width={32} src='/bedrock-avatar_active_dark.svg' alt={isAI ? "AI avatar" : "Human avatar"} />
+            <img className={[styles.activeAvatarImg, "awsui-util-hide-in-dark-mode"].join(" ")} width={32} src='/bedrock-avatar_active_light.svg' alt={isAI ? "AI avatar" : "Human avatar"} />
+          </div>
         </div>
       )
     } else {
