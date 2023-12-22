@@ -104,7 +104,8 @@
     position: absolute;
     top: 0;
     left: 0;
-    background: linear-gradient(90deg, rgba(223, 211, 248, 0.50) 0%, rgba(221, 205, 254, 0.50) 25%, rgba(204, 250, 255, 0.50) 64.78%, rgba(204, 225, 255, 0.50) 100%);
+    // background: linear-gradient(90deg, rgba(52, 20, 120, 0.30) 0%, rgba(118, 56, 250, 0.30) 32.29%, rgba(187, 248, 255, 0.30) 67.19%, rgba(62, 141, 255, 0.30) 100%);
+    background: linear-gradient(90deg, rgba(118, 56, 250, 0.15) 0%, rgba(187, 248, 255, 0.15) 50%, rgba(62, 141, 255, 0.15) 100%);
 } 
 
 .shimmerEffectDark {
@@ -114,5 +115,6 @@
     position: absolute;
     top: 0;
     left: 0;
-    background: linear-gradient(90deg, rgba(191, 168, 240, 0.50) 0%, rgba(187, 155, 253, 0.50) 25%, rgba(153, 245, 255, 0.50) 64.78%, rgba(153, 195, 255, 0.50) 100%);    
-} 
+    // background: linear-gradient(90deg, rgba(51, 20, 118, 0.50) 0%, rgba(118, 56, 250, 0.50) 32.29%, rgba(187, 248, 255, 0.50) 67.19%, rgba(62, 141, 255, 0.50) 100%);
+    background: linear-gradient(90deg, rgba(118, 56, 250, 0.25) 0%, rgba(187, 248, 255, 0.25) 50%, rgba(62, 141, 255, 0.25) 100%);
+}

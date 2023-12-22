@@ -13,7 +13,7 @@ const shimmerAnimation = {
     opacity: 1,
   },
   animate: {
-    scale: 100,
+    scale: 120,
     opacity: 0,
   }
 };

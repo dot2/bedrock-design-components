@@ -79,7 +79,7 @@ const Page = () => {
                 <Textarea
                   onChange={({ detail }) => setValue(detail.value)}
                   value={value}
-                  placeholder="This is a placeholder"
+                  placeholder="Enter your instructions"
                 />
                 <Button variant="primary">Button</Button>
               </SpaceBetween>
